@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Farro&family=Slabo+13px&family=Varela+Round&display=swap");
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(180deg, #011a27, #063852);
+}
+
+.App {
+  color: #5cdb95;
+  font-family: "Farro", sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+  width: 50%;
+  border: 1px solid #5cdb95;
+  border-radius: 10px;
+  border-bottom-right-radius: 38px;
+  box-shadow: 7px 7px 5px #011a27;
+  margin: 80px auto;
+}
+
+label {
+  margin: 20px 0 10px 0;
+  font-size: 1.5rem;
+}
+
+input {
+  width: 23%;
+  height: 4.3vh;
+  border: 2px solid #011a27;
+  border-radius: 8px;
+  padding: 2px;
+  font-family: "Farro", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  color: #5cdb95;
+  background-color: #063852;
+}
+
+button {
+  margin-top: 45px;
+  width: 18%;
+  height: 6vh;
+  padding: 5px;
+  font-family: "Farro", sans-serif;
+  color: #5cdb95;
+  font-size: 1rem;
+  border: 2px solid #011a27;
+  border-radius: 7px;
+  background-color: #063852;
+}
+
+button:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #03486d;
+  box-shadow: 1px 1px 1px #011a27;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+#output {
+  margin-top: 35px;
+  padding: 12px;
+  font-size: 1.2rem;
+}
