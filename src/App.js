@@ -96,7 +96,7 @@ function getNextDate(date) {
   return {
     day: day,
     month: month,
-    year: year
+    year: year,
   };
 }
 
@@ -177,34 +177,39 @@ export default function App() {
 
   function clickHandler(e) {
     // function to the handle the click event on the check button
-    if (birthdate === "") return alert("Enter a valid birthdate!"); // check if the input is not empty
-
-    let bdate = birthdate.split("-");
-    let dob = {
-      day: Number(bdate[2]),
-      month: Number(bdate[1]),
-      year: Number(bdate[0])
-    };
-    let dobStr = dateToString(dob);
-    let isPalindrome = checkPalindrome(dobStr);
-
-    if (isPalindrome) {
-      setOutput("Yay! Your Birthdate is Palindrome🥳"); // sets the output to the view
+    if (birthdate === "") {
+      // check if the input is not empty
+      setOutput("Enter a valid birthdate!");
     } else {
-      let [nextDays, nextDate] = nextPalindromeDate(dob);
-      let [prevDays, prevDate] = previousPalindromeDate(dob);
-      if (nextDays > prevDays) {
-        setOutput(
-          `The nearest Palindrome date was ${prevDate.day}-${prevDate.month}-${
-            prevDate.year
-          }, you missed by ${prevDays} ${prevDays > 1 ? "days!" : "day!"} 😔`
-        );
+      let bdate = birthdate.split("-");
+      let dob = {
+        day: Number(bdate[2]),
+        month: Number(bdate[1]),
+        year: Number(bdate[0]),
+      };
+      let dobStr = dateToString(dob);
+      let isPalindrome = checkPalindrome(dobStr);
+
+      if (isPalindrome) {
+        setOutput("Yay! Your Birthdate is Palindrome🥳"); // sets the output to the view
       } else {
-        setOutput(
-          `The nearest Palindrome date is ${nextDate.day}-${nextDate.month}-${
-            nextDate.year
-          }, you missed by ${nextDays} ${nextDays > 1 ? "days!" : "day!"} 😔`
-        );
+        let [nextDays, nextDate] = nextPalindromeDate(dob);
+        let [prevDays, prevDate] = previousPalindromeDate(dob);
+        if (nextDays > prevDays) {
+          setOutput(
+            `The nearest Palindrome date was ${prevDate.day}-${
+              prevDate.month
+            }-${prevDate.year}, you missed by ${prevDays} ${
+              prevDays > 1 ? "days!" : "day!"
+            } 😔`
+          );
+        } else {
+          setOutput(
+            `The nearest Palindrome date is ${nextDate.day}-${nextDate.month}-${
+              nextDate.year
+            }, you missed by ${nextDays} ${nextDays > 1 ? "days!" : "day!"} 😔`
+          );
+        }
       }
     }
   }
